@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Sign up</title>
+  <!-- CSS OUTPUT LINKED TO SASS -->
+  <link rel="stylesheet" href="output.css">
+
+  <!-- JQUERY LIBRARY -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+
+
+<body>
+
+  <!-- START OF HEADER AND NAVBAR -->
+
+  <header>
+    <h2><a href="index.html">Cool kids code.</a></h2>
+    <nav>
+
+      <ul>
+        <li><a href="index.html">Archive</a></li>
+        <li><a href="create.html">Create Post</a></li>
+        <li><a href="edit.html">Edit Post</a></li>
+        <li><a href="signup.html">Sign up</a></li>
+      </ul>
+    </nav>
+
+  </header>
+  <hr>
+
+  <!-- END OF HEADER AND NAVBAR -->
+
+
+  <!-- START OF SUBMIT FORM LINKED TO DB.JSON -->
+
+  <div class="notice">
+
+  </div>
+
+
+  <form id="submit_form" action="http://localhost:3000/users" method="post">
+
+    <hr> First Name: <input type="text" name="first_name" value="" required>
+    <hr> Last Name: <input type="text" name="last_name" value="" required>
+    <hr> Email: <input type="email" name="email" value="" required>
+    <hr> Password: <input type="password" name="password" value="" required>
+    <hr> <input id="form_btn" type="submit" name="" value="SUBMIT">
+  </form>
+
+
+  <!-- END OF FORM LINKED TO DB.JSON -->
+</body>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('#submit_form').submit(function(event) {
+
+        event.preventDefault();
+        alert('hahaha');
+
+
+        let first_name = $('input[name="first_name"]').val();
+        let last_name = $('input[name="last_name"]').val();
+        let emailAddress = $('input[name="email"]').val();
+        let password = $('input[name="password"]').val();
+
+
+
+console.log(password);
+$.ajax({
+  url: "http://localhost:3000/users",
+  type: "POST",
+  data: {firstname : first_name,
+  lastname: last_name,
+email: emailAddress,
+password: password},
+
+});
+
+
+
+      //   $.ajax({
+      //       url: 'http://localhost:3000/users',
+      //       method: 'post',
+      //       data: {
+      //           "firstname": first_name ,
+      //           "lastname":last_name ,
+      //           "email":mailAddress ,
+      //           "password":password,
+      //         }
+      //
+      //     });
+      //   }).done(function(saved_user) {
+      //   alert("data saved:" saved_user.id);
+      //   $('.notice').html('new user created' + saved_user.id).show();
+      // });
+
+
+
+
+
+
+
+
+    });
+
+
+  });
+</script>
+
+
+</html>

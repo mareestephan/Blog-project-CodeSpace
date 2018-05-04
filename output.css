@@ -1,0 +1,40 @@
+body {
+  background-color: #ffcc00; }
+
+hr {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 1px solid #000;
+  margin: 1em 1em;
+  padding: 0; }
+
+header {
+  height: 40px; }
+  header h2 {
+    position: absolute;
+    padding-left: 15px;
+    margin: 0; }
+    header h2 a {
+      text-decoration: none;
+      color: #000; }
+  header nav {
+    float: right;
+    display: inline; }
+    header nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: inline; }
+      header nav ul li {
+        display: inline;
+        padding-right: 5px;
+        font-family: monospace; }
+        header nav ul li a {
+          color: #000;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px; }
+
+/*# sourceMappingURL=output.css.map */

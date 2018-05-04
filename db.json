@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "first_name": "Anh",
+      "last_name": "Pham",
+      "email": "info@thehoianvilla.com",
+      "password": "yyyyyyyyyy",
+      "id": 1
+    },
+    {
+      "firstname": "Anh",
+      "id": 2
+    },
+    {
+      "firstname": "Anh",
+      "lastname": "Pham",
+      "email": "info@thehoianvilla.com",
+      "id": 3
+    },
+    {
+      "firstname": "Stephan",
+      "lastname": "Maree",
+      "email": "stephanmaree@gmail.com",
+      "password": "jk7890",
+      "id": 4
+    }
+  ]
+}
