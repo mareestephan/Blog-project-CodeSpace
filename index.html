@@ -13,7 +13,7 @@
 <body>
 
 
-    <!-- START OF HEADER AND NAVBAR -->
+  <!-- START OF HEADER AND NAVBAR -->
 
   <header>
     <h2><a href="index.html">Cool kids code.</a></h2>
@@ -30,54 +30,57 @@
   </header>
   <hr>
 
-      <!-- END OF HEADER AND NAVBAR -->
+  <!-- END OF HEADER AND NAVBAR -->
 
 
+  <div class="blog_posts">
 
 
+  </div>
 
 
+<a href="#">a</a>
 
 
 
 
 </body>
 <script type="text/javascript">
-  // $(document).ready(function() {
-  //
-  //   $('#submit_form').submit(function(event) {
-  //
-  //     event.preventDefault();
-  //     alert('hahaha');
-  //
-  //
-  //     $.ajax({
-  //     url: '',
-  //     method: 'post',
-  //     data : [
-  //       "firstname": first_name  ,
-  //       "lastname": last_name ,
-  //       "email": emailAddress,
-  //       "password": password,
-  //     ]
-  //
-  //     }
-  //     }).done(function(saved_user){
-  //     alert("data saved:"+ msg);
-  //       $('.notice').html('new user created' + saved_user.id).show();
-  //     });
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //   });
-  //
-  //
-  // });
+  $(document).ready(function() {
+
+    $.getJSON('http://localhost:3000/posts', function(posts){
+
+
+
+      for (post of posts) {
+
+        let titles = post.post_title;
+        let authors = post.post_author;
+        let dates = post.post_date;
+        let articles = post.post_article;
+
+        $('.blog_posts').append('<h2><a class="apples" href="">' + titles + '</a></h2>');
+        $('.blog_posts').append("<h3>" + authors + "</h3>");
+        $('.blog_posts').append("<h4>" + dates + "</h4>");
+        $('.blog_posts').append("<p>" + articles + "</p>");
+
+
+      }
+
+
+
+    });
+
+    $('.apples').on('click', function(){
+
+      
+    });
+
+
+
+
+
+  });
 </script>
 
 </html>

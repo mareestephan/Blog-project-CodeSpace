@@ -1,9 +1,18 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "post_title": "Die son skyn en ons gaan die halloumi braai",
+      "post_author": "Stephan Shakespeare Maree",
+      "post_date": "2018-04-05",
+      "post_article": "Ek is nogals honger. Maar omdat ek twee koppies koffies gedrink het is my eetlus ge-pause. Ek is lus vir ribs en wings. Braaitjie met ribs en wings is altyd gees.",
+      "id": 1
+    },
+    {
+      "post_title": "Wat eet mens oor naweke?",
+      "post_author": "Stephan Shakespear Maree",
+      "post_date": "2018-02-03",
+      "post_article": "Ek gaan wings braai want wings braai is religious en dit is die beste.",
+      "id": 2
     }
   ],
   "comments": [
@@ -18,28 +27,11 @@
   },
   "users": [
     {
-      "first_name": "Anh",
-      "last_name": "Pham",
-      "email": "info@thehoianvilla.com",
-      "password": "yyyyyyyyyy",
+      "firstname": "lisa",
+      "lastname": "van zyl",
+      "email": "lisa.v.zyl@gmail.com",
+      "password": "stellenbosch",
       "id": 1
-    },
-    {
-      "firstname": "Anh",
-      "id": 2
-    },
-    {
-      "firstname": "Anh",
-      "lastname": "Pham",
-      "email": "info@thehoianvilla.com",
-      "id": 3
-    },
-    {
-      "firstname": "Stephan",
-      "lastname": "Maree",
-      "email": "stephanmaree@gmail.com",
-      "password": "jk7890",
-      "id": 4
     }
   ]
 }

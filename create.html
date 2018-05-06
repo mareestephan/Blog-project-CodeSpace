@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Create Blogpost</title>
-    <link rel="stylesheet" href="output.css">
-  </head>
-  <body>
-    <!-- START OF HEADER AND NAVBAR -->
+
+<head>
+  <meta charset="utf-8">
+  <title>Create Blogpost</title>
+  <link rel="stylesheet" href="output.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <!-- START OF HEADER AND NAVBAR -->
 
   <header>
     <h2><a href="index.html">Cool kids code.</a></h2>
@@ -23,12 +26,90 @@
   </header>
   <hr>
 
-      <!-- END OF HEADER AND NAVBAR -->
+  <!-- END OF HEADER AND NAVBAR -->
 
-    <h1>this is where we create blogs.</h1>
-
-
+  <h1>this is where we create blogs.</h1>
 
 
-  </body>
+
+  <div class="appels">
+
+  </div>
+
+
+  <!-- START OF BLOG TEXT BOXES -->
+
+  <form id="submitPost" action="http://localhost:3000/posts" method="post">
+
+    <label>
+      Title :
+      <input type="text" name="title" value="" placeholder="Every post needs a cool title">
+    </label>
+    <br>
+    <label>
+      Author :
+      <input type="text" name="author" value="" placeholder="Your soon to be famous name">
+    </label>
+    <br>
+    <label>
+      Date :
+      <input type="date" name="date" value="" >
+    </label>
+    <br>
+    <label>Insert & edit article :
+     <textarea name="article" rows="8" cols="80"></textarea>
+    </label>
+    <hr>
+
+    <input type="submit" name="submit" value="SUBMIT">
+
+
+
+  </form>
+
+
+
+</body>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $('#submitPost').submit(function(event){
+    event.preventDefault();
+
+
+
+    let title = $('input[name="title"]').val();
+    let author = $('input[name="author"]').val();
+    let date = $('input[name="date"]').val();
+    let article = $('textarea[name="article"]').val();
+    let image = $('input[name="image"]').val();
+
+
+
+    $.ajax({
+      url: "http://localhost:3000/posts",
+      type: "POST",
+      data: {
+        post_title: title,
+        post_author: author,
+        post_date: date,
+        post_article: article
+      },
+
+    }).done(function(saved_post){
+    alert("New blogpost submitted on " + saved_post.post_date +  ", thank you " + saved_post.post_author);
+      $('.appels').html('new user created' + saved_post.id).show();
+    });
+  });
+
+
+
+
+
+});
+
+
+</script>
+
 </html>

@@ -61,52 +61,28 @@
 
     $('#submit_form').submit(function(event) {
 
-        event.preventDefault();
-        alert('hahaha');
+      event.preventDefault();
+      alert('hahaha');
 
 
-        let first_name = $('input[name="first_name"]').val();
-        let last_name = $('input[name="last_name"]').val();
-        let emailAddress = $('input[name="email"]').val();
-        let password = $('input[name="password"]').val();
-
-
-
-console.log(password);
-$.ajax({
-  url: "http://localhost:3000/users",
-  type: "POST",
-  data: {firstname : first_name,
-  lastname: last_name,
-email: emailAddress,
-password: password},
-
-});
+      let first_name = $('input[name="first_name"]').val();
+      let last_name = $('input[name="last_name"]').val();
+      let emailAddress = $('input[name="email"]').val();
+      let password = $('input[name="password"]').val();
 
 
 
-      //   $.ajax({
-      //       url: 'http://localhost:3000/users',
-      //       method: 'post',
-      //       data: {
-      //           "firstname": first_name ,
-      //           "lastname":last_name ,
-      //           "email":mailAddress ,
-      //           "password":password,
-      //         }
-      //
-      //     });
-      //   }).done(function(saved_user) {
-      //   alert("data saved:" saved_user.id);
-      //   $('.notice').html('new user created' + saved_user.id).show();
-      // });
+      $.ajax({
+        url: "http://localhost:3000/users",
+        type: "POST",
+        data: {
+          firstname: first_name,
+          lastname: last_name,
+          email: emailAddress,
+          password: password
+        },
 
-
-
-
-
-
-
+      });
 
     });
 
