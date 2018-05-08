@@ -6,6 +6,11 @@
   <title>Create Blogpost</title>
   <link rel="stylesheet" href="output.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- SUMMERNOTE -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
+  <!-- END OF SUMMERNOTE -->
 </head>
 
 <body>
@@ -56,8 +61,13 @@
       <input type="date" name="date" value="" >
     </label>
     <br>
+    <label>
+      Description :
+      <input type="text" name="description" value="" >
+    </label>
+    <br>
     <label>Insert & edit article :
-     <textarea name="article" rows="8" cols="80"></textarea>
+    <textarea id="summernote" name="editordata"></textarea>
     </label>
     <hr>
 
@@ -71,45 +81,57 @@
 
 </body>
 
+
 <script type="text/javascript">
-$(document).ready(function() {
-
-  $('#submitPost').submit(function(event){
-    event.preventDefault();
+  $(document).ready(function() {
+    
 
 
+    $('#summernote').summernote('code');
 
-    let title = $('input[name="title"]').val();
-    let author = $('input[name="author"]').val();
-    let date = $('input[name="date"]').val();
-    let article = $('textarea[name="article"]').val();
-    let image = $('input[name="image"]').val();
+
+    $('#submitPost').submit(function(event) {
 
 
 
-    $.ajax({
-      url: "http://localhost:3000/posts",
-      type: "POST",
-      data: {
-        post_title: title,
-        post_author: author,
-        post_date: date,
-        post_article: article
-      },
 
-    }).done(function(saved_post){
-    alert("New blogpost submitted on " + saved_post.post_date +  ", thank you " + saved_post.post_author);
-      $('.appels').html('new user created' + saved_post.id).show();
+      let title = $('input[name="title"]').val();
+      let author = $('input[name="author"]').val();
+      let date = $('input[name="date"]').val();
+      let article = $('textarea[name="editordata"]').val();
+      let image = $('input[name="image"]').val();
+
+
+
+      $.ajax({
+        url: "http://localhost:3000/posts",
+        type: "POST",
+        data: {
+          post_title: title,
+          post_author: author,
+          post_date: date,
+          post_article: article
+        },
+
+      }).done(function(saved_post) {
+        alert("New blogpost submitted on " + saved_post.post_date + ", thank you " + saved_post.post_author);
+        $('.appels').html('new user created' + saved_post.id).show();
+      });
     });
+
+
+
+
+
   });
 
 
-
-
-
-});
+  .append(<button> read more <button>)
 
 
 </script>
+
+
+
 
 </html>

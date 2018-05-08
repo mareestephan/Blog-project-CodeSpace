@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- CSS LINKED WITH SASS : INPUT.SCSS -->
   <link rel="stylesheet" href="output.css">
+  <link rel="text/html" href="blogpost.html">
 </head>
 
 <body>
@@ -33,24 +34,17 @@
   <!-- END OF HEADER AND NAVBAR -->
 
 
+   <!-- DIV TO APPEND BLOGPOSTS -->
   <div class="blog_posts">
 
 
   </div>
 
-
-<a href="#">a</a>
-
-
-
-
 </body>
 <script type="text/javascript">
   $(document).ready(function() {
 
-    $.getJSON('http://localhost:3000/posts', function(posts){
-
-
+    $.getJSON('http://localhost:3000/posts', function(posts) {
 
       for (post of posts) {
 
@@ -58,28 +52,27 @@
         let authors = post.post_author;
         let dates = post.post_date;
         let articles = post.post_article;
+        let id = post.id;
 
-        $('.blog_posts').append('<h2><a class="apples" href="">' + titles + '</a></h2>');
+        $('.blog_posts').append('<h2><a class="apples" href="blogpost.html?id='+ id + '">' + titles + '</a></h2>');
         $('.blog_posts').append("<h3>" + authors + "</h3>");
         $('.blog_posts').append("<h4>" + dates + "</h4>");
         $('.blog_posts').append("<p>" + articles + "</p>");
 
+//send id with href.
+//create id variable and add it along to the href link being summernote
+//
+
 
       }
-
-
-
+      // $('.apples').on('click', function(event){
+      //
+      //
+      //   alert('I will work');
+      //
+      //
+      // });
     });
-
-    $('.apples').on('click', function(){
-
-      
-    });
-
-
-
-
-
   });
 </script>
 

@@ -1,18 +1,39 @@
 {
   "posts": [
     {
-      "post_title": "Die son skyn en ons gaan die halloumi braai",
-      "post_author": "Stephan Shakespeare Maree",
-      "post_date": "2018-04-05",
-      "post_article": "Ek is nogals honger. Maar omdat ek twee koppies koffies gedrink het is my eetlus ge-pause. Ek is lus vir ribs en wings. Braaitjie met ribs en wings is altyd gees.",
+      "post_title": "Hello WOrld",
+      "post_author": "appels",
+      "post_date": "2018-02-03",
+      "post_article": "Vandag skyn die son en die lewe is lekker.",
       "id": 1
     },
     {
-      "post_title": "Wat eet mens oor naweke?",
-      "post_author": "Stephan Shakespear Maree",
-      "post_date": "2018-02-03",
-      "post_article": "Ek gaan wings braai want wings braai is religious en dit is die beste.",
+      "post_title": "This is the second blog post",
+      "post_author": "PEtrus Maree",
+      "post_date": "2018-03-03",
+      "post_article": "Hierdie is doe tweede blogpost",
       "id": 2
+    },
+    {
+      "post_title": "Dit gaan dalk reen",
+      "post_author": "Stephan Maree",
+      "post_date": "2018-02-02",
+      "post_article": "Ek hoop nie dit reen nie",
+      "id": 3
+    },
+    {
+      "post_title": "Stephanwen ",
+      "post_author": "Shakespeare",
+      "post_date": "2018-02-02",
+      "post_article": "<p>Helloooooooooooooooo</p>",
+      "id": 4
+    },
+    {
+      "post_title": "It might rain today.",
+      "post_author": "Weatherman",
+      "post_date": "2018-08-04",
+      "post_article": "<p>It might rain today. SO I put on some extra clothes and then the sun came out. wtf</p>",
+      "id": 5
     }
   ],
   "comments": [

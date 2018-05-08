@@ -1,12 +1,99 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>view blogs</title>
-  </head>
-  <body>
 
-    <h1>This is where I view blogs</h1>
+<head>
+  <meta charset="utf-8">
+  <title>view blogs</title>
+  <!-- JQUERY LIBRARY -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- CSS LINKED WITH SASS : INPUT.SCSS -->
+  <link rel="stylesheet" href="output.css">
 
-  </body>
+
+</head>
+
+<body>
+
+  <!-- START OF HEADER AND NAVBAR -->
+
+  <header>
+    <h2><a href="index.html">Cool kids code.</a></h2>
+    <nav>
+
+      <ul>
+        <li><a href="index.html">Archive</a></li>
+        <li><a href="create.html">Create Post</a></li>
+        <li><a href="edit.html">Edit Post</a></li>
+        <li><a href="signup.html">Sign up</a></li>
+      </ul>
+    </nav>
+
+  </header>
+  <hr>
+
+  <!-- END OF HEADER AND NAVBAR -->
+
+  <h1>This is where I view blogs</h1>
+
+  <div class="view_blogpost">
+
+  </div>
+
+
+
+
+
+  <form class="" action="http://localhost:3000/comments" method="post">
+
+    <label>
+    Leave a comment:
+    <textarea name="name" rows="8" cols="80">ksjhfdkhefkjshdfkj</textarea>
+  </label>
+
+  </form>
+  <div class="comments">
+
+
+  </div>
+
+</body>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $.ajaxSetup({ cache: false });
+
+
+
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var id = url.searchParams.get("id");
+
+$.getJSON('http://localhost:3000/posts/' + id, function(data){
+$('.view_blogpost').append('<h2>' + data.post_author + '</h2>' )
+$('.view_blogpost').append('<h2>' + data.post_author + '</h2>' )
+$('.view_blogpost').append('<h2>' + data.post_author + '</h2>' )
+$('.view_blogpost').append('<h2>' + data.post_author + '</h2>' )
+
+
+  // console.log(data.post_author);
+
+
+});
+
+
+
+
+
+
+
+    //when users clicks on heading anchor, new page opens. DONE
+    //button listener takes you to new page DONE
+    //button listener also calls post
+    //button listener also calls comments via postID
+    //when new page opens .prepend('comments') after the html form.
+
+  });
+</script>
+
 </html>
