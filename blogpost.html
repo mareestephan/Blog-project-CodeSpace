@@ -43,12 +43,30 @@
 
 
 
-  <form class="" action="http://localhost:3000/comments" method="post">
+  <form id="comment_submit" action="http://localhost:3000/comments" method="post">
+
+    <h3>Comments: </h3>
+
+    <label>
+    Username :
+    <input type="text" name="username" value="">
+  </label>
+    <br>
 
     <label>
     Leave a comment:
-    <textarea name="name" rows="8" cols="80">ksjhfdkhefkjshdfkj</textarea>
+    <br>
+    <textarea name="comment" rows="8" cols="80"></textarea>
+
   </label>
+
+    <br>
+
+
+
+    <input type="submit" name="" value="Submit comment">
+
+
 
   </form>
   <div class="comments">
@@ -61,37 +79,67 @@
 <script type="text/javascript">
   $(document).ready(function() {
 
-    $.ajaxSetup({ cache: false });
+    $.ajaxSetup({
+      cache: false
+    });
+
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var id = url.searchParams.get("id");
+    var postId = url.searchParams.get("id");
+
+    $.getJSON('http://localhost:3000/posts/' + id, function(data) {
+      $('.view_blogpost').append('<h2>' + data.post_author + '</h2>')
+      $('.view_blogpost').append('<h2>' + data.post_author + '</h2>')
+      $('.view_blogpost').append('<h2>' + data.post_author + '</h2>')
+      $('.view_blogpost').append('<h2>' + data.post_author + '</h2>')
+
+    });
+
+  $('#comment_submit').submit(function(event) {
+
+      event.preventDefault();
+
+      let usernames = $('input[name="username"]').val();
+      let comment = $('textarea[name="comment"]').val();
+
+
+      $.ajax({
+        url: "http://localhost:3000/comments",
+        type: "POST",
+        data: {
+          username: usernames,
+          comments: comment,
+          postId: id
+        },
+
+      }).done(function(saved_comment) {
+        alert("New comment submitted. Thank you " + usernames);
+      });
+
+    });
+
+    $.getJSON('http://localhost:3000/comments/?postId=' + postId, function(comments){
+
+
+    for (comment of comments) {
+
+      // console.log(comment.comment);
+      // console.log(comment.username);
+      $('.comments').append("<h3>" + comment.username + "</h3>");
+      $('.comments').append("<p>" + comment.comment + "</p><hr>");
+
+
+    }
 
 
 
-  var url_string = window.location.href;
-  var url = new URL(url_string);
-  var id = url.searchParams.get("id");
-
-$.getJSON('http://localhost:3000/posts/' + id, function(data){
-$('.view_blogpost').append('<h2>' + data.post_author + '</h2>' )
-$('.view_blogpost').append('<h2>' + data.post_author + '</h2>' )
-$('.view_blogpost').append('<h2>' + data.post_author + '</h2>' )
-$('.view_blogpost').append('<h2>' + data.post_author + '</h2>' )
+    });
 
 
-  // console.log(data.post_author);
+// html?id='+ id
 
 
-});
-
-
-
-
-
-
-
-    //when users clicks on heading anchor, new page opens. DONE
-    //button listener takes you to new page DONE
-    //button listener also calls post
-    //button listener also calls comments via postID
-    //when new page opens .prepend('comments') after the html form.
 
   });
 </script>

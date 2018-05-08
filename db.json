@@ -34,13 +34,48 @@
       "post_date": "2018-08-04",
       "post_article": "<p>It might rain today. SO I put on some extra clothes and then the sun came out. wtf</p>",
       "id": 5
+    },
+    {
+      "title": "Stephanwen ",
+      "author": "sssssss",
+      "date": "2018-02-03",
+      "description": "dsfsdfsdfsdf",
+      "editordata": "sdfsdfdsfsdfsdfsdf",
+      "submit": "SUBMIT",
+      "id": 6
+    },
+    {
+      "post_title": "sssss",
+      "post_author": "sssssss",
+      "post_date": "2018-02-02",
+      "post_article": "<p>ksdjhfksdjfhskdfjgsdhjkfgsdhjkfgsdf</p>",
+      "id": 7
     }
   ],
   "comments": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "username": "blogMaster",
+      "comment": "This blog is djas",
+      "postId": "3",
+      "id": 1
+    },
+    {
+      "username": "Stephan",
+      "comment": "hellooooooo",
+      "postId": "6",
+      "id": 2
+    },
+    {
+      "username": "jhsadgfljhsgdf",
+      "comment": "samdfhblskdfhbskdjfbhskdjhf",
+      "postId": "3",
+      "id": 3
+    },
+    {
+      "username": "asdasdasd",
+      "comments": "asdsadasdasd",
+      "postId": "6",
+      "id": 4
     }
   ],
   "profile": {

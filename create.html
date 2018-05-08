@@ -84,13 +84,17 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    
+
 
 
     $('#summernote').summernote('code');
 
 
     $('#submitPost').submit(function(event) {
+
+      event.preventDefault();
+
+
 
 
 
@@ -126,7 +130,7 @@
   });
 
 
-  .append(<button> read more <button>)
+  // .append(<button> read more <button>)
 
 
 </script>
