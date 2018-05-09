@@ -23,7 +23,7 @@
       <ul>
         <li><a href="index.html">Archive</a></li>
         <li><a href="create.html">Create Post</a></li>
-        <li><a href="edit.html">Edit Post</a></li>
+        <!-- <li><a href="edit.html">Edit Post</a></li> -->
         <li><a href="signup.html">Sign up</a></li>
       </ul>
     </nav>
@@ -33,11 +33,13 @@
 
   <!-- END OF HEADER AND NAVBAR -->
 
-  <h1>This is where I view blogs</h1>
+  <!-- <h1>This is where I view blogs</h1> -->
 
   <div class="view_blogpost">
 
   </div>
+
+  <input id="edit_post" type="submit" name="edit" value="Edit Post">
 
 
 
@@ -70,7 +72,9 @@
 
   </form>
 
-  <input id="edit_post" type="submit" name="edit" value="Edit Post">
+
+
+  <!-- APPEND SUBMITTED COMMENTS HERE -->
   <div class="comments">
 
 
@@ -95,10 +99,12 @@
 
     $.getJSON('http://localhost:3000/posts/' + id, function(data) {
         $('.view_blogpost').append('<h2>' + data.post_title + '</h2>')
+        $('.view_blogpost').append("<h4>" + data.post_date + "</h4>");
       $('.view_blogpost').append('<h3>' + data.post_author + '</h3>')
-      $('.view_blogpost').append("<h4>" + data.post_date + "</h4>");
+
+        $('.view_blogpost').append('<img src="' + data.image_url + '">');
       $('.view_blogpost').append("<p>" + data.post_article + "</p>");
-      $('.view_blogpost').append('<img src="' + data.image_url + '">');
+
 
     });
 

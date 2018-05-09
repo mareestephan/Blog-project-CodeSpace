@@ -53,4 +53,10 @@ header {
     background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.75), transparent);
     align: center; }
 
+.blog_posts, .view_blogpost {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center; }
+
 /*# sourceMappingURL=output.css.map */

@@ -23,7 +23,7 @@
       <ul>
         <li><a href="index.html">Archive</a></li>
         <li><a href="create.html">Create Post</a></li>
-        <li><a href="edit.html">Edit Post</a></li>
+        <!-- <li><a href="edit.html">Edit Post</a></li> -->
         <li><a href="signup.html">Sign up</a></li>
       </ul>
     </nav>
@@ -58,8 +58,8 @@
         let id = post.id;
 
         $('.blog_posts').append('<h2><a class="apples" href="blogpost.html?id=' + id + '">' + titles + '</a></h2>');
-        $('.blog_posts').append("<h3>" + authors + "</h3>");
         $('.blog_posts').append("<h4>" + dates + "</h4>");
+        $('.blog_posts').append("<h3>" + authors + "</h3>");
         $('.blog_posts').append("<p>" + articles + "</p>");
         $('.blog_posts').append('<img src="' + images + '">');
 
