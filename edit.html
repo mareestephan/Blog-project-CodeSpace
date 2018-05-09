@@ -76,17 +76,24 @@
 </body>
 
 <script type="text/javascript">
-  $(document).ready(function() { //jquery start
-    // summernote start
+  $(document).ready(function() {
+
+    $.ajaxSetup({
+      cache: false
+    });
+
+
+
     $('#summernote').summernote({
       height: 300,
       minHeight: null,
       maxHeight: null,
       focus: true
     });
-    // summernote end
 
-    //get ID and post data
+
+
+
     var url_string = window.location.href;
     var url = new URL(url_string);
     var id = url.searchParams.get("id");
@@ -94,32 +101,48 @@
     $.getJSON('http://localhost:3000/posts?id=' + id, function(data){
 
       for (object of data) {
-          $('input[name="title"]').val(data.post_title)
-          $('input[name="author"]').val(data.post_author);
-          $('input[name="date"]').val(data.post_date);
-          $('#summernote').summernote('code',data.post_article);
-          $('input[name="image"]').val(data.image_url);
+          $('input[name="title"]').val(object.post_title)
+          $('input[name="author"]').val(object.post_author);
+          $('input[name="date"]').val(object.post_date);
+          $('#summernote').summernote('code',object.post_article);
+          $('input[name="image"]').val(object.image_url);
 
 
 
 
       }
 
-      // for(post of posts){
 
-    //   $('input[name="title"]').val(data.post_title)
-    //   $('input[name="author"]').val(data.post_author);
-    //   $('input[name="date"]').val(data.post_date);
-    //   $('#summernote').summernote('code',data.post_article);
-    //   $('input[name="image"]').val(data.image_url);
-    // // };
     });
-    // $('#submitPost').submit(fucntion(event){
-    //   event.preventDefault();
-    //
-    //
-    //
-    // })
+    $('#submitPost').submit(function(event){
+      event.preventDefault();
+
+      // VARIABLES CONTAINING EDITED FORMS
+      let newTitle = $('input[name="title"]').val();
+      let newAuthor = $('input[name="author"]').val();
+      let newDate = $('input[name="date"]').val();
+      let newArticle = $('textarea[name="editordata"]').val();
+      let newImage = $('input[name="image"]').val();
+
+      $.ajax({
+        url: "http://localhost:3000/posts/" + id,
+        type: "PUT",
+        data: {
+          post_title: newTitle,
+          post_author: newAuthor,
+          post_date: newDate,
+          post_article: newArticle,
+          image_url: newImage
+        },
+
+
+      }).done(function(edited_post) {
+        alert("Post successfully edited on " + edited_post.post_date + ", thank you " + edited_post.post_author);
+      });
+
+
+
+    })
 
 
   });
