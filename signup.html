@@ -43,14 +43,30 @@
   </div>
 
 
-  <form id="submit_form" action="http://localhost:3000/users" method="post">
+  <div class="">
 
-    <hr> First Name: <input type="text" name="first_name" value="" required>
-    <hr> Last Name: <input type="text" name="last_name" value="" required>
-    <hr> Email: <input type="email" name="email" value="" required>
-    <hr> Password: <input type="password" name="password" value="" required>
-    <hr> <input id="form_btn" type="submit" name="" value="SUBMIT">
-  </form>
+    <form id="submit_form" action="http://localhost:3000/users" method="post">
+
+      <label>
+      First Name: </label>
+      <input type="text" name="first_name" value="" required>
+
+      <hr class="signup_hr">
+
+      <label>
+    Last Name: </label><input type="text" name="last_name" value="" required>
+    <hr class="signup_hr">
+
+      <label>Email: </label><input type="email" name="email" value="" required>
+      <hr class="signup_hr">
+
+
+      <label>Password:</label><input type="password" name="password" value="" required>
+      <hr class="signup_hr">
+      <p></p>
+      <input id="form_btn" type="submit" name="" value="SUBMIT">
+    </form>
+  </div>
 
 
   <!-- END OF FORM LINKED TO DB.JSON -->
@@ -62,7 +78,7 @@
     $('#submit_form').submit(function(event) {
 
       event.preventDefault();
-      alert('hahaha');
+
 
 
       let first_name = $('input[name="first_name"]').val();

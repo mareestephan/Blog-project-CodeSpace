@@ -94,10 +94,11 @@
     var postId = url.searchParams.get("id");
 
     $.getJSON('http://localhost:3000/posts/' + id, function(data) {
-      $('.view_blogpost').append('<h2>' + data.post_author + '</h2>')
-      $('.view_blogpost').append('<h2>' + data.post_author + '</h2>')
-      $('.view_blogpost').append('<h2>' + data.post_author + '</h2>')
-      $('.view_blogpost').append('<h2>' + data.post_author + '</h2>')
+        $('.view_blogpost').append('<h2>' + data.post_title + '</h2>')
+      $('.view_blogpost').append('<h3>' + data.post_author + '</h3>')
+      $('.view_blogpost').append("<h4>" + data.post_date + "</h4>");
+      $('.view_blogpost').append("<p>" + data.post_article + "</p>");
+      $('.view_blogpost').append('<img src="' + data.image_url + '">');
 
     });
 
