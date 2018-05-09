@@ -34,7 +34,7 @@
   <!-- END OF HEADER AND NAVBAR -->
 
 
-   <!-- DIV TO APPEND BLOGPOSTS -->
+  <!-- POPULATE WITH BLOG POSTS -->
   <div class="blog_posts">
 
 
@@ -44,6 +44,8 @@
 <script type="text/javascript">
   $(document).ready(function() {
 
+    // REQUEST FILES FROM db.json AND APPEND THEM IN class="blog_posts" LINE 38
+
     $.getJSON('http://localhost:3000/posts', function(posts) {
 
       for (post of posts) {
@@ -52,26 +54,18 @@
         let authors = post.post_author;
         let dates = post.post_date;
         let articles = post.post_article;
+        let images = post.image_url;
         let id = post.id;
 
-        $('.blog_posts').append('<h2><a class="apples" href="blogpost.html?id='+ id + '">' + titles + '</a></h2>');
+        $('.blog_posts').append('<h2><a class="apples" href="blogpost.html?id=' + id + '">' + titles + '</a></h2>');
         $('.blog_posts').append("<h3>" + authors + "</h3>");
         $('.blog_posts').append("<h4>" + dates + "</h4>");
         $('.blog_posts').append("<p>" + articles + "</p>");
-
-//send id with href.
-//create id variable and add it along to the href link being summernote
-//
+        $('.blog_posts').append('<img src="' + images + '">');
 
 
       }
-      // $('.apples').on('click', function(event){
-      //
-      //
-      //   alert('I will work');
-      //
-      //
-      // });
+
     });
   });
 </script>

@@ -37,46 +37,43 @@
 
 
 
-  <div class="appels">
-
-  </div>
-
-
-  <!-- START OF BLOG TEXT BOXES -->
+  <!-- START CREATE BLOG POST TEMPLATE -->
 
   <form id="submitPost" action="http://localhost:3000/posts" method="post">
 
     <label>
       Title :
-      <input type="text" name="title" value="" placeholder="Every post needs a cool title">
+      <input type="text" name="title" value="" placeholder="Insert a cool title">
     </label>
+    <br>
     <br>
     <label>
       Author :
-      <input type="text" name="author" value="" placeholder="Your soon to be famous name">
+      <input type="text" name="author" value="" placeholder="Your famous name">
     </label>
+    <br>
     <br>
     <label>
       Date :
       <input type="date" name="date" value="" >
     </label>
+
     <br>
+    <br>
+
     <label>
-      Description :
-      <input type="text" name="description" value="" >
-    </label>
-    <br>
-    <label>Insert & edit article :
-    <textarea id="summernote" name="editordata"></textarea>
+      Insert & edit article :
+      <textarea id="summernote" name="editordata"></textarea>
     </label>
     <hr>
 
-    <input type="submit" name="submit" value="SUBMIT">
+    <input type="" name="image"  value="" placeholder="insert img url">
 
-
+      <input type="submit" name="submit" value="SUBMIT">
 
   </form>
 
+  <!-- END CREATE BLOG POST TEMPLATE -->
 
 
 </body>
@@ -86,27 +83,30 @@
   $(document).ready(function() {
 
 
+    // TEXT EDITOR PLUGIN
+    $('#summernote').summernote({
+      height: 150,
+      minHeight: null,
+      maxHeight: null,
+      focus: true
+    });
 
-    $('#summernote').summernote('code');
 
-
+    // SUBMIT FORMS (id="submitPost") TO VIA AJAX TO DB.JSON
     $('#submitPost').submit(function(event) {
 
       event.preventDefault();
 
 
 
-
-
-
+      // VARIABLES CONTAINING FORMS
       let title = $('input[name="title"]').val();
       let author = $('input[name="author"]').val();
       let date = $('input[name="date"]').val();
       let article = $('textarea[name="editordata"]').val();
       let image = $('input[name="image"]').val();
 
-
-
+      // AJAX REQUEST SEND TO db.json
       $.ajax({
         url: "http://localhost:3000/posts",
         type: "POST",
@@ -114,25 +114,19 @@
           post_title: title,
           post_author: author,
           post_date: date,
-          post_article: article
+          post_article: article,
+          image_url: image
         },
+
 
       }).done(function(saved_post) {
         alert("New blogpost submitted on " + saved_post.post_date + ", thank you " + saved_post.post_author);
-        $('.appels').html('new user created' + saved_post.id).show();
       });
     });
-
-
-
-
-
   });
 
 
   // .append(<button> read more <button>)
-
-
 </script>
 
 

@@ -69,6 +69,8 @@
 
 
   </form>
+
+  <input id="edit_post" type="submit" name="edit" value="Edit Post">
   <div class="comments">
 
 
@@ -82,6 +84,9 @@
     $.ajaxSetup({
       cache: false
     });
+
+
+
 
     var url_string = window.location.href;
     var url = new URL(url_string);
@@ -136,9 +141,10 @@
 
     });
 
+    $('#edit_post').on('click',function(){
 
-// html?id='+ id
-
+     location.href="edit.html?id="+id;
+   });
 
 
   });
